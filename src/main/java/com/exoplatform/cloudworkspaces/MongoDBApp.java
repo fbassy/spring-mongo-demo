@@ -31,17 +31,21 @@ public class MongoDBApp {
             tenantRepository.insertNewRandomTenant();
         }
 
-        tenantRepository.logAllTenants();
-       // logger.info("Avarage age of a tenant is: {}", tenantRepository.());
-
         logger.info("Search one tenant");
 
         if (tenantRepository.findTenantByName("Mock-tenant") == null) {
             logger.info("Create Mock");
             tenantRepository.insertMockTenant();
+        } else {
+            logger.info("Delete Mock");
+            tenantRepository.deleteTenant("Mock-tenant");
+            logger.info("Create Mock");
+            tenantRepository.insertMockTenant();
         }
 
         logger.info(tenantRepository.findTenantByName("Mock-tenant").toString());
+
+        tenantRepository.logAllTenants();
 
         logger.info("Finished MongoDemo application");
 	}

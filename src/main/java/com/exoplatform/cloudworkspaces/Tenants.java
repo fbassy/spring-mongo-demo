@@ -47,7 +47,7 @@ public class Tenants {
     }
 
     public void insertMockTenant() {
-        Tenant p = new Tenant("Mock-tenant", 66,66);
+        Tenant p = new Tenant("Mock-tenant");
         mongoTemplate.insert(p);
     }
 
@@ -66,6 +66,16 @@ public class Tenants {
         if (!mongoTemplate.collectionExists(Tenant.class)) {
             mongoTemplate.createCollection(Tenant.class);
         }
+    }
+
+    /**
+     * Create a {@link Tenant} collection if the collection does not already exists
+     */
+    public Tenant deleteTenant(String name) {
+        Query query = new Query(where("name").is(name));
+        // Execute the query and find one matching entry
+        mongoTemplate.findAndRemove(query, Tenant.class);
+        return mongoTemplate.findAndRemove(query, Tenant.class);
     }
 
     /**
