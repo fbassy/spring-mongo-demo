@@ -1,4 +1,4 @@
-package com.jeroenreijn.mongodb.example;
+package com.exoplatform.cloudworkspaces;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,20 +19,20 @@ public class MongoDBApp {
 
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
 
-        PersonRepository personRepository = context.getBean(PersonRepository.class);
+        Tenants personRepository = context.getBean(Tenants.class);
 
         // cleanup person collection before insertion
-        personRepository.dropPersonCollection();
+        personRepository.dropTenantCollection();
 
         //create person collection
-        personRepository.createPersonCollection();
+        personRepository.createTenantCollection();
 
-        for(int i=0; i<20; i++) {
-            personRepository.insertPersonWithNameJohnAndRandomAge();
+        for(int i=0; i<5; i++) {
+            personRepository.insertNewRandomTenant();
         }
 
-        personRepository.logAllPersons();
-        logger.info("Avarage age of a person is: {}", personRepository.getAvarageAgeOfPerson());
+        personRepository.logAllTenants();
+       // logger.info("Avarage age of a person is: {}", personRepository.());
 
         logger.info("Finished MongoDemo application");
 	}
