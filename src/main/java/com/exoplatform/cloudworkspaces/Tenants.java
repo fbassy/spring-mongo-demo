@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.core.query.Query;
+import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 import java.util.Iterator;
 import java.util.List;
@@ -42,6 +44,19 @@ public class Tenants {
         Tenant p = new Tenant("tenant-"+number, number,number);
 
         mongoTemplate.insert(p);
+    }
+
+    public void insertMockTenant() {
+        Tenant p = new Tenant("Mock-tenant", 66,66);
+        mongoTemplate.insert(p);
+    }
+
+    public Tenant findTenantByName(String name) {
+        Query query = new Query(where("name").is(name));
+        // Execute the query and find one matching entry
+        Tenant sampleTenant = mongoTemplate.findOne(query, Tenant.class);
+
+        return sampleTenant;
     }
 
     /**

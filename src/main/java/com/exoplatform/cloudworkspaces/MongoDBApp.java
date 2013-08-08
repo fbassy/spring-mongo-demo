@@ -19,20 +19,29 @@ public class MongoDBApp {
 
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
 
-        Tenants personRepository = context.getBean(Tenants.class);
+        Tenants tenantRepository = context.getBean(Tenants.class);
 
-        // cleanup person collection before insertion
-        personRepository.dropTenantCollection();
+        // cleanup tenant collection before insertion
+        //tenantRepository.dropTenantCollection();
 
-        //create person collection
-        personRepository.createTenantCollection();
+        //create tenant collection
+        tenantRepository.createTenantCollection();
 
         for(int i=0; i<5; i++) {
-            personRepository.insertNewRandomTenant();
+            tenantRepository.insertNewRandomTenant();
         }
 
-        personRepository.logAllTenants();
-       // logger.info("Avarage age of a person is: {}", personRepository.());
+        tenantRepository.logAllTenants();
+       // logger.info("Avarage age of a tenant is: {}", tenantRepository.());
+
+        logger.info("Search one tenant");
+
+        if (tenantRepository.findTenantByName("Mock-tenant") == null) {
+            logger.info("Create Mock");
+            tenantRepository.insertMockTenant();
+        }
+
+        logger.info(tenantRepository.findTenantByName("Mock-tenant").toString());
 
         logger.info("Finished MongoDemo application");
 	}

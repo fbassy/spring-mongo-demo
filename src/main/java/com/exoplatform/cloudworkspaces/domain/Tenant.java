@@ -1,6 +1,5 @@
 package com.exoplatform.cloudworkspaces.domain;
 
-import com.mongodb.util.JSON;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,8 +9,7 @@ import java.io.Serializable;
 @Document
 public class Tenant implements Serializable {
 
-
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -5527566248002296042L;
 
     @Id
     private String name;
@@ -57,8 +55,8 @@ public class Tenant implements Serializable {
 
     @Override
     public String toString() {
-        //return JSON.serialize(this);
-        return "Person [name=" + name + ", userLimit=" + userLimit + ", storageLimit=" + storageLimit + "]";
+    //    return JSON.serialize(this);
+        return "Tenant [name=" + name + ", userLimit=" + userLimit + ", storageLimit=" + storageLimit + "]";
     }
 
 }
