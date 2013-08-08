@@ -26,11 +26,11 @@ public class Tenants {
         List<Tenant> results = mongoTemplate.findAll(Tenant.class);
         logger.info("Total amount of Tenant: {}", results.size());
 
-     /*   Iterator<Tenant> TenantIterator = results.iterator();
+        Iterator<Tenant> TenantIterator = results.iterator();
         while (TenantIterator.hasNext()) {
             Tenant nextTenant = TenantIterator.next();
             logger.info(nextTenant.toString());
-        }     */
+        }
 
        // logger.info("Results: {}", results.toString());
     }
