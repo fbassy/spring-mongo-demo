@@ -25,9 +25,9 @@ public class MongoDBApp {
         //create tenant collection
         tenantRepository.createTenantCollection();
 
-        for(int i=0; i<5; i++) {
-            tenantRepository.insertNewRandomTenant();
-        }
+//        for(int i=0; i<5; i++) {
+//            tenantRepository.insertNewRandomTenant();
+//        }
 
         logger.info("Search one tenant");
 

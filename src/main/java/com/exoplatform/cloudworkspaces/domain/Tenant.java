@@ -5,9 +5,8 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
-@Document
-@TypeAlias(value = "toto")
+@Document(collection = "tenants")
+@TypeAlias("Tenants")
 public class Tenant {
 
     @Id
@@ -66,7 +65,7 @@ public class Tenant {
 
     @Override
     public String toString() {
-    //    return JSON.serialize(this);
+        //    return JSON.serialize(this);
         return "Tenant [name=" + name + ", userLimit=" + userLimit + ", storageLimit=" + storageLimit + ", serviceLevel=" + serviceLevel + "]";
     }
 

@@ -47,6 +47,7 @@ public class Tenants {
         mongoTemplate.insert(p);
     }
 
+
     public void insertMockTenant() {
         Tenant p = new Tenant("Mock-tenant");
         mongoTemplate.insert(p);

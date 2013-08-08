@@ -36,7 +36,6 @@ public class ServiceLevels {
 
     @Override
     public String toString() {
-        //    return JSON.serialize(this);
         return "ServiceLevels [idTenant=" + idTenant + ", levels=" + levels + "]";
     }
 }

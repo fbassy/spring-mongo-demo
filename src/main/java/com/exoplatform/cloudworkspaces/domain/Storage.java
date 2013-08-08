@@ -71,7 +71,6 @@ public class Storage {
 
     @Override
     public String toString() {
-        //    return JSON.serialize(this);
         return "Storage [idTenant=" + idTenant + ", date=" + date + ", database=" + database + ", indexes=" + indexes + ", backup=" + backup + "]";
     }
 }
