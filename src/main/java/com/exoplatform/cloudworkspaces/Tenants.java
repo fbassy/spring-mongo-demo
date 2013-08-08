@@ -1,5 +1,6 @@
 package com.exoplatform.cloudworkspaces;
 
+import com.exoplatform.cloudworkspaces.domain.ServiceLevels;
 import org.slf4j.Logger;
 import com.exoplatform.cloudworkspaces.domain.Tenant;
 import org.slf4j.LoggerFactory;
@@ -41,7 +42,7 @@ public class Tenants {
         //get random age between 1 and 100
         int number = (int)(Math.random() * 100);
 
-        Tenant p = new Tenant("tenant-"+number, number,number);
+        Tenant p = new Tenant("tenant-"+number, number,number,new ServiceLevels("tenant-"+number,1));
 
         mongoTemplate.insert(p);
     }

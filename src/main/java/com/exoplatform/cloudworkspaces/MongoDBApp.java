@@ -7,8 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Small MongoDB application that uses spring data to interact with MongoDB.
- * 
- * @author Jeroen Reijn
  */
 public class MongoDBApp {
 
@@ -22,7 +20,7 @@ public class MongoDBApp {
         Tenants tenantRepository = context.getBean(Tenants.class);
 
         // cleanup tenant collection before insertion
-        //tenantRepository.dropTenantCollection();
+        tenantRepository.dropTenantCollection();
 
         //create tenant collection
         tenantRepository.createTenantCollection();
