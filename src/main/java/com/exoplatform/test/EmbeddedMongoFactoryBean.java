@@ -1,4 +1,4 @@
-package com.exoplatform.cloudworkspaces;
+package com.exoplatform.test;
 
 import java.io.IOException;
 
