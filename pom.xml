@@ -11,6 +11,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <embed.mongo.version>1.34</embed.mongo.version>
     <junit.version>4.8.1</junit.version>
     <slf4j.version>1.6.1</slf4j.version>
     <!--<spring.framework.version>3.1.3.RELEASE</spring.framework.version>-->
@@ -51,6 +52,12 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>de.flapdoodle.embed</groupId>
+      <artifactId>de.flapdoodle.embed.mongo</artifactId>
+      <version>${embed.mongo.version}</version>
     </dependency>
 
     <!-- test dependencies -->
