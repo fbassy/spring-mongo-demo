@@ -1,12 +1,14 @@
 package com.exoplatform.cloudworkspaces.domain;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
-@Document
+
+@Document (collection = "tenants")
 public class Tenant implements Serializable {
 
     private static final long serialVersionUID = -5527566248002296042L;

@@ -37,14 +37,6 @@ public class Tenants {
        // logger.info("Results: {}", results.toString());
     }
 
-    public void insertNewRandomTenant() {
-        //get random age between 1 and 100
-        int number = (int)(Math.random() * 100);
-
-        Tenant p = new Tenant("tenant-"+number, number,number);
-
-        mongoTemplate.insert(p);
-    }
 
     public void insertMockTenant() {
         Tenant p = new Tenant("Mock-tenant");
